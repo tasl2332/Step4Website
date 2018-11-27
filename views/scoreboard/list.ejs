@@ -9,13 +9,16 @@
     <p style="color:blue"><%- messages.success %></p>
 <% } %>
 
+<!-- Everything important in this document is here i.e. the table-->
 <table border="0" width='60%'>
     <tr style='text-align:left; background-color:#CCC'>
+        <th>Rank</th>
         <th>Name</th>
         <th>Score</th>
     </tr>
     <% for(var i=0; i < data.length; i++) { %>
         <tr>
+            <td><%= i %></td>
             <td><%= data[i].displayName %></td>
             <td><%= data[i].score %></td>
         </tr>

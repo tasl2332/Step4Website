@@ -23,6 +23,7 @@ app.use(methodOverride(function (req, res) {
 var flash = require('express-flash');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
+//Figure out what exactly is going on here
 app.use(cookieParser('csci3308'));
 app.use(session({
     secret: 'csci3308',
@@ -32,6 +33,7 @@ app.use(session({
 }));
 app.use(flash());
 
+//Routes for the page we are using. This is probably the best spot to put in a case for if the user has logged in
 var index = require("./routes/index");
 var scoreboard = require('./routes/scoreboard');
 app.use('/scoreboard', scoreboard);

@@ -5,8 +5,7 @@ module.exports = app;
 
 app.get('/', function (request, response) {
     var displayList = [];
-    // TODO: Initialize the query variable with a SQL query
-    // that returns all the rows in the ‘store’ table
+    //Query gets the list of values but with having an order to it.
     var query = 'select * from highscores ORDER BY score DESC';
 
     db.query(query,function(err,rows,fields){
