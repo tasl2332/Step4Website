@@ -1,0 +1,67 @@
+<html>
+<head>
+    <!-- 'title' is the data that is passed from the index.js during the response.render function call -->
+    <!--<title><%= title %></title> -->
+
+    <style>
+    	.green-background{
+          background-color: #00972c;
+          color:white;
+          border-radius: 5px;
+
+
+      }
+    </style>
+</head>
+<body  style= "background: url(https://cdn.glitch.com/0515bf3b-2e1b-4d36-bbc4-8acac6399fd4%2Fwall1%20copy.png?1543700466410)">
+	<style type="text/css">
+		img{
+         	height: 45vh;
+         	width: auto;
+         	margin: 10px;
+         	border-top: 0px;
+
+         }
+         h1{
+         	color: #A63B1A;
+         	border-bottom: 0px;
+         }
+
+
+	</style>
+<div>
+    <a href="/">Home</a> |
+    <a href="/scoreboard">Scoreboard</a> |
+    <a href= "/login">Login</a>
+</div>
+<div align = "center">
+	<h1><%= title %></h1>
+	<div>
+		<img src = "https://cdn.glitch.com/0515bf3b-2e1b-4d36-bbc4-8acac6399fd4%2FPlayerGhost%20copy.png?1543689813452"
+
+	</div>
+	<br>
+	<div class="form-group">
+		<label for="username" style="color:#A63B1A;">Enter Username: </label>
+		<br>
+		<input type="username" class="form-control" id="usernamein" placeholder="username" style="color:black">
+	</div>
+	<br>
+	<div class="form-group">
+		<label for="password" style="color:#A63B1A;">Enter Password: </label>
+		<br>
+		<input type="password" class="form-control" id="passwordin" placeholder="password" style="color:black;">
+	</div>
+	<br>
+	<button type="submit" class="btn btn-success green-background">Submit</button>
+
+
+</div><!--center align div-->
+</body>
+
+<footer>
+
+</footer>
+
+
+</html>

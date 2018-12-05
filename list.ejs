@@ -1,0 +1,29 @@
+<!--Including Header Partial-->
+<%- include ../layouts/header.ejs %>
+
+<!--Using if-check to see if an error occurred and displaying appropriate message-->
+<% if (messages.error) { %> 
+    <p style="color:red"><%- messages.error %></p>
+<% } %>
+<% if (messages.success) { %>
+    <p style="color:blue"><%- messages.success %></p>
+<% } %>
+
+<!-- Everything important in this document is here i.e. the table-->
+<table border="0" width='60%'>
+    <tr style='text-align:left; background-color:#CCC'>
+        <th>Rank</th>
+        <th>Name</th>
+        <th>Score</th>
+    </tr>
+    <% for(var i=0; i < data.length; i++) { %>
+        <tr>
+            <td><%= i + 1%></td>
+            <td><%= data[i].displayName %></td>
+            <td><%= data[i].score %></td>
+        </tr>
+    <% } %>
+</table>
+
+<!--Including Footer Partial-->
+<%- include ../layouts/footer.ejs %>
