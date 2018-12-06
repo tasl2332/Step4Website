@@ -17,40 +17,50 @@ app.post('/', function(request, response){
             userName: request.sanitize('userName').escape().trim().replace(';',''),
             password: request.sanitize('password_main').escape().trim().replace(';','')
         };
-        console.log(loginCreds);
-        var queryUsername = "select username from users where username = '" + loginCreds.userName + "';";
-        var queryPass = "select displayName from users where username = '" + loginCreds.userName + "' AND password = '" + loginCreds.password + "';";
-        //console.log(queryAddNewUser);
+       // console.log(loginCreds);
+        var queryUsername = "select username from users where username = '" + loginCreds.userName.toString().toLowerCase() + "';";
+        var queryPass = "select password, displayName from users where username = '" + loginCreds.userName.toString().toLowerCase() + "' AND password = '" + loginCreds.password + "';";
+        
         //console.log(queryAddNewUserHighscore);
         db.query(queryUsername,function(err,rows,fields){
-            if(err)throw err;
+            if(err){
+                response.render('login', {title: 'Please check your Username'});
+            }
             else{
+               // console.log(rows);
                 //console.log(rows);
                 if(rows != ""){
-	                if(rows[0].username == loginCreds.userName){
-	                    //console.log("In if");
-	                    db.query(queryPass,function(err,rows,fields){
-	                        if(err)throw err;
-	                        else{
-	                            //console.log(rows);
-	                            if(rows!= ""){
-	                               //console.log("Login success");
-                                   request.session.user = rows[0].displayName;
-	                               var loginString = "Welcome " + rows[0].displayName + "!";
-	                               response.render('index',{title: loginString}); 
-		                        }
-	                            else{
-	                                response.render('login', {title: 'Please check your password'});
-	                            }
-	                            
-	                        }
-	                    });
-	                }
-	                
-	            }
-	            else{
-	                    response.render('login', {title: 'Please check your Username'});
-	                }
+                    if(rows[0].username.toString() == loginCreds.userName.toString()){
+                        //console.log("In if");
+                        db.query(queryPass,function(err,rows,fields){
+                            if(err)throw err;
+                            else{
+                                //console.log(rows);
+                                if(rows!= ""){
+                                    if(rows[0].password.toString() == loginCreds.password.toString()){
+                                       //console.log("Login success");
+                                       request.session.user = rows[0].displayName;
+                                       var loginString = "Welcome " + rows[0].displayName + "!";
+                                       response.render('index',{title: loginString}); 
+                                   }else{
+                                    response.render('login', {title: 'Please check your password'});
+                                }
+                                }
+                                else{
+                                    response.render('login', {title: 'Please check your password'});
+                                }
+                                
+                            }
+                        });
+                    }
+                    else{
+                        response.render('login', {title: 'Please check your Username'});
+                    }
+                    
+                }
+                else{
+                        response.render('login', {title: 'Please check your Username'});
+                    }
             }
         });
         
