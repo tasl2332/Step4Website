@@ -1,0 +1,133 @@
+<html>
+<head>
+   <!-- The param which is passed from render-->
+   <title><%= title %></title>
+</head>
+<body style= "background: url(https://cdn.glitch.com/0515bf3b-2e1b-4d36-bbc4-8acac6399fd4%2Fwall1%20copy.png?1543700466410)">
+
+	<style>
+	h1{
+		color:#A63B1A;
+		border-bottom: 0px;
+	}
+	img{
+		height: 45vh;
+		width:auto;
+		margin: 10px;
+		border-top: 0px;
+	}
+</style>
+
+<div>
+   <a href="/">Home</a> |
+    <a href="/scoreboard">Scoreboard</a> |
+    <a href= "/login">Login</a>
+</div>
+
+<div align = "center">
+	<h1><%= title %></h1>
+	<div>
+	<img src = "https://cdn.glitch.com/0515bf3b-2e1b-4d36-bbc4-8acac6399fd4%2FPlayerGhost%20copy.png?1543689813452"
+
+</div>
+
+
+</body>
+<body>
+	<style type="text/css">
+		img{
+         	height: 45vh;
+         	width: auto;
+         	margin: 10px;
+         	border-top: 0px;
+
+         }
+         h1{
+         	color: #A63B1A;
+         	border-bottom: 0px;
+         }
+         form {
+			  /* Just to center the form on the page */
+			  margin: 0 auto;
+			  width: 500px;
+			  /* To see the outline of the form */
+			  padding: 1em;
+			  border: 1px solid #CCC;
+			  border-radius: 1em;
+			}
+
+			form div + div {
+			  margin-top: 1em;
+			}
+
+			label {
+			  /* To make sure that all labels have the same size and are properly aligned */
+			  display: inline-block;
+			  width: 100px;
+			  text-align: right;
+			}
+
+			input, textarea {
+			  /* To make sure that all text fields have the same font settings
+			     By default, textareas have a monospace font */
+			  font: 1em sans-serif;
+
+			  /* To give the same size to all text fields */
+			  width: 300px;
+			  box-sizing: border-box;
+
+			  /* To harmonize the look & feel of text field border */
+			  border: 1px solid #999;
+			}
+
+			input:focus, textarea:focus {
+			  /* To give a little highlight on active elements */
+			  border-color: #000;
+			}
+
+			textarea {
+			  /* To properly align multiline text fields with their labels */
+			  vertical-align: top;
+
+			  /* To give enough room to type some text */
+			  height: 5em;
+			}
+
+			.button {
+			  /* To position the buttons to the same position of the text fields */
+			  /*padding-left: 90px;  same size as the label elements */
+			}
+
+			button {
+			  /* This extra margin represent roughly the same space as the space
+			     between the labels and their text fields */
+			  margin-left: .5em;
+			}
+
+	</style>
+	<br>
+	<form action="/login" method="post" name="form1">
+		<div>
+			<label form="userName">Username:</label>
+			<input type="text" id="userName" name="userName" />
+		</div>
+		<div>
+			<label form="password_main">Password:</label>
+			<input type="password" id="password_main" name="password_main" />
+		</div>
+		<div class="button">
+			<button type="submit">Login</button>
+		</div>
+		<br>
+		<a href= "/createUser" style="font-size: 12px">Create a New User</a>
+	</form>
+	
+</div><!--center align div-->
+</body>
+
+<footer>
+
+</footer>
+
+
+</html>
