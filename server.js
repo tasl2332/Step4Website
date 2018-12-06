@@ -36,12 +36,16 @@ app.use(flash());
 //Routes for the page we are using. This is probably the best spot to put in a case for if the user has logged in
 var index = require("./routes/index");
 var scoreboard = require('./routes/scoreboard');
+var loginPage = require('./routes/login');
+var newUserPage = require('./routes/newUser')
 app.use('/scoreboard', scoreboard);
 app.use('/',index);
+app.use('/login',loginPage);
+app.use('/createUser',newUserPage);
 
 
 
 var port = process.env.PORT;
 app.listen(port, function () {
-    console.log('Server running Heroku:' + port)
+    console.log('Server running Heroku:')
 });
