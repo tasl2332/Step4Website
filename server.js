@@ -1,7 +1,7 @@
 //Step4Ever
 var express = require('express');
 var app = express();
-
+var Cookies = require('cookies')
 app.set('view engine', 'ejs');
 
 var expressValidator = require('express-validator');
@@ -24,25 +24,30 @@ var flash = require('express-flash');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 //Figure out what exactly is going on here
-app.use(cookieParser('csci3308'));
+app.use(cookieParser());
 app.use(session({
-    secret: 'csci3308',
+    key: 'user_sid',
+    secret: 'step4Ever',
+    user: 'NaU',
     resave: false,
-    saveUninitialized: true,
-    cookie: {maxAge: 60000}
+    saveUninitialized: false,
+    cookie: {expires: 60000}
 }));
+
+
 app.use(flash());
 
 //Routes for the page we are using. This is probably the best spot to put in a case for if the user has logged in
 var index = require("./routes/index");
 var scoreboard = require('./routes/scoreboard');
 var loginPage = require('./routes/login');
-var newUserPage = require('./routes/newUser')
-app.use('/login',loginPage);
-app.use('/',index);
+var newUserPage = require('./routes/newUser');
+var logoutPage = require('./routes/logout');
 app.use('/scoreboard', scoreboard);
+app.use('/',index);
+app.use('/login',loginPage);
 app.use('/createUser',newUserPage);
-
+app.use('/logout',logoutPage);
 
 
 

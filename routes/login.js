@@ -35,6 +35,7 @@ app.post('/', function(request, response){
 	                            //console.log(rows);
 	                            if(rows!= ""){
 	                               //console.log("Login success");
+                                   request.session.user = rows[0].displayName;
 	                               var loginString = "Welcome " + rows[0].displayName + "!";
 	                               response.render('index',{title: loginString}); 
 		                        }

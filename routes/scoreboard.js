@@ -4,23 +4,28 @@ var app = express();
 module.exports = app;
 
 app.get('/', function (request, response) {
-    var displayList = [];
-    //Query gets the list of values but with having an order to it.
-    var query = 'select * from highscores ORDER BY score DESC';
+    if(request.session.user && request.cookies.user_sid){
+        var displayList = [];
+        //Query gets the list of values but with having an order to it.
+        var query = 'select * from highscores ORDER BY score DESC';
 
-    db.query(query,function(err,rows,fields){
-        if(err)throw err;
-        else{
-            for(var i = 0; i < rows.length; i++){
-                var row = {
-                    'score':rows[i].score,
-                    'displayName':rows[i].displayName
+        db.query(query,function(err,rows,fields){
+            if(err)throw err;
+            else{
+                for(var i = 0; i < rows.length; i++){
+                    var row = {
+                        'score':rows[i].score,
+                        'displayName':rows[i].displayName
+                    }
+                    displayList.push(row);
                 }
-                displayList.push(row);
             }
-        }
-        response.render('scoreboard/list', {title:"Scoreboard",data:displayList});
-    });
+            response.render('scoreboard/list', {title:"Scoreboard",data:displayList,userDisName:request.session.user});
+        });
+    }else{
+        response.redirect('/login');
+
+    }
 
 
 });
