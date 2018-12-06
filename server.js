@@ -38,8 +38,8 @@ var index = require("./routes/index");
 var scoreboard = require('./routes/scoreboard');
 var loginPage = require('./routes/login');
 var newUserPage = require('./routes/newUser')
-app.use('/scoreboard', scoreboard);
 app.use('/',index);
+app.use('/scoreboard', scoreboard);
 app.use('/login',loginPage);
 app.use('/createUser',newUserPage);
 
