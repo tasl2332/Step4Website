@@ -43,11 +43,13 @@ var scoreboard = require('./routes/scoreboard');
 var loginPage = require('./routes/login');
 var newUserPage = require('./routes/newUser');
 var logoutPage = require('./routes/logout');
+var gamePage = require('./routes/game');
 app.use('/scoreboard', scoreboard);
 app.use('/',index);
 app.use('/login',loginPage);
 app.use('/createUser',newUserPage);
 app.use('/logout',logoutPage);
+app.use('/game',gamePage);
 
 
 

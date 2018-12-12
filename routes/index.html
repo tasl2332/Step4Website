@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <body style= "background: url(https://cdn.glitch.com/0515bf3b-2e1b-4d36-bbc4-8acac6399fd4%2Fwall1%20copy.png?1543700466410)">
+
+  <style>
+  h1{
+    color:#A63B1A;
+    border-bottom: 0px;
+  }
+  img{
+    height: 45vh;
+    width:auto;
+    margin: 10px;
+    border-top: 0px;
+  }
+</style>
+
+<div>
+   <a href="/">Home</a> |
+    <a href="/scoreboard">Scoreboard</a> |
+    <a href="/game">Game</a> |
+    <a href= "/logout">Logout</a>
+</div>
+</body>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | Step4ever</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <script src="TemplateData/UnityProgress.js"></script>  
+    <script src="Build/UnityLoader.js"></script>
+    <script>
+      var gameInstance = UnityLoader.instantiate("gameContainer", "Build/step4online.json", {onProgress: UnityProgress});
+    </script>
+  </head>
+  <body>
+    <div class="webgl-content">
+      <div id="gameContainer" style="width: 960px; height: 600px"></div>
+      <div class="footer">
+        <div class="webgl-logo"></div>
+        <div class="fullscreen" onclick="gameInstance.SetFullscreen(1)"></div>
+        <div class="title">Step4ever</div>
+      </div>
+    </div>
+  </body>
+</html>
