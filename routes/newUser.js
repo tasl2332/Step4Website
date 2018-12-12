@@ -55,7 +55,7 @@ app.post('/', function(request, response){
                                         //console.log("Success");
                                     }
                                 });
-                                res.redirect('/login');
+                                response.redirect('/login');
                             }
                             else{
                                 response.render('newUser', {title: 'Please choose a different DisplayName'});
