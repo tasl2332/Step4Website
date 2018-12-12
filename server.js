@@ -53,7 +53,8 @@ app.use('/game',gamePage);
 
 
 
-var port = process.env.PORT;
+//var port = process.env.PORT;
+var port = 4000;
 app.listen(port, function () {
     console.log('Server running Heroku:' + port)
 });
